@@ -1,0 +1,93 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap);
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: #EFF1F3;
+  min-height: 100vh;
+  position: relative;
+}
+
+.feed-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+  background: #fff;
+  margin-bottom: 7px;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.even {
+    background: #e8f9ff !important;
+}
+
+.feed-list .tweet-item {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+ }
+
+.feed-list .tweet-item .tweet-image img {
+  height: 48px;
+  width: 48px;
+  border-radius: 50px;
+  margin-right: 20px;
+}
+
+.feed-list .tweet-item .tweet-content p {
+  margin-bottom: 5px;
+  margin-top: 0px;
+  line-height: 1.2;
+}
+
+.text-muted {
+    color: grey;
+}
+
+a {
+    text-decoration: none;
+    color: inherit !important;
+}
+
+.content-section{
+    padding: 5rem 200px 0px 200px;
+}
+
+h1{
+    text-align: center;
+    padding-top: 2rem;
+}
+
+button{
+    margin: 0;
+      position: absolute;
+      left: 50%;
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+
+    box-sizing: border-box;
+      appearance: none;
+      background-color: transparent;
+      border: 2px solid #3498db;
+      border-radius: 0.6em;
+      color: #3498db;
+      cursor: pointer;
+      display: flex;
+      align-self: center;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 2;
+      text-decoration: none;
+      text-align: center;
+    }
+
+button:hover {
+          border-color: #3498db;
+          color: #fff;
+          box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+          transition: all 150ms ease-in-out;
+        }

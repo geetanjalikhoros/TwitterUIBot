@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Timeline UI </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1> Twitter Home Timeline </h1>
+<button type="button" onclick="loadDoc()"> View your timeline </button>
+<div id="content" class="content-section"> </div>
+
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  var xmlDoc;
+  xhttp.onload = function() {
+    const obj = JSON.parse(this.responseText);
+    let i=0;
+    while (obj[i]) {
+
+        var div1 = document.createElement("DIV");
+        div1.className = "feed-list";
+        var a = document.createElement("A");
+        var div2 = document.createElement("DIV");
+        div2.className = "tweet-item";
+        var div3 = document.createElement("DIV");
+        div3.className = "tweet-image";
+        var img = document.createElement("IMG");
+        var div4 = document.createElement("DIV");
+        div4.className = "tweet-content";
+        var p = document.createElement("P");
+        var span = document.createElement("SPAN");
+        span.className = "text-muted";
+
+        a.href = obj[i].url;
+        a.target = "_blank";
+
+        p.innerText = obj[i].message;
+        p.id = "div-" + i;
+
+        var date = new Date(obj[i].createdAt);
+        const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        span.innerText = " " + months[date.getMonth()] + " " + date.getDate();
+
+        img.src = obj[i].profileImageURL;
+
+        if(i % 2 == 0)
+        {
+            div1.classList.add("even");
+        }
+        else
+        {
+            div1.classList.add("odd");
+        }
+        document.getElementById("content").appendChild(a);
+        a.appendChild(div1);
+        div1.appendChild(div2);
+        div2.appendChild(div3);
+        div3.appendChild(img);
+        div2.appendChild(div4);
+        div4.appendChild(p);
+        div4.appendChild(span);
+        i++;
+    }
+  }
+  xhttp.open("GET", "/api/timeline");
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
